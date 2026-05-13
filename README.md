@@ -58,3 +58,13 @@
 <img src="image-8.png" width="45%" alt="3 화면">
 </div>
 <br>
+
+## 10주차 수업 내용 
+
+1: 로그인과 로그아웃 페이지 추가
+2: AuthResource.java, User.java,DataSeedar.java, login 파일 추가
+<div align="center">
+<img src="image-9.png" width="45%" alt="1 화면">
+<img src="image-10.png" width="45%" alt="2 화면">
+</div>
+<br>

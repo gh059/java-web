@@ -1,4 +1,4 @@
-package org.acme;
+package org.acme.champion;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;

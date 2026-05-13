@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>League of Legends - 메인 페이지</title>
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/test.js"></script>
+    <script src="../js/test2.js"></script>
+    <script src="../js/toggle.js"></script>
+
+
+    <!-- 커스텀 스타일 (LOL 테마 + 챔피언 호버 효과) -->
+    <style>
+        body { background-color: #0a0e17; color: #fff; font-family: 'Arial', sans-serif; }
+        .navbar { background-color: #000; }
+        .hero { background: linear-gradient(to bottom, #1e1e1e, #0a0e17); min-height: 60vh; }
+        .accent-purple { color: #a020f0; }
+        .accent-red { color: #ff0000; }
+        .card { background-color: #1e1e1e; border: none; transition: transform 0.3s, box-shadow 0.3s; }
+        .card:hover { transform: scale(1.05); box-shadow: 0 10px 20px rgba(160, 32, 240, 0.5); }
+        .card-img-top { height: 200px; object-fit: cover; border-radius: 10px 10px 0 0; }
+        .btn-primary { background-color: #a020f0; border: none; }
+        .btn-primary:hover { background-color: #800080; }
+    </style>
+</head>
+<body>
+
+    <!-- 헤더 (Navbar) -->
+    <nav class="navbar navbar-expand-lg" data-bs-theme="dark">
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+        <img src="../image/a2.jpeg" alt="LOL 로고" width="40" height="40" class="d-inline-block align-text-top">
+        <button class="btn border-0" id="themeToggleBtn" onclick="toggleTheme()">
+    🌙DARK
+    </button>
+        </a>
+    </div>
+    </nav>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">뉴스</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="#">챔피온</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="main_page_sub/download.html">다운로드</a>
+            </li>
+            <!-- 기존 로그인 버튼 제거, 로그아웃 버튼 추가 -->
+            <li class="nav-item">
+            <a class="nav-link btn btn-outline-danger btn-sm px-3"
+            href="/logout">로그아웃</a>
+            </li>
+            <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                외부웹사이트
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="https://lol.ps/" target="_blank">롤 전적 사이트</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+            </li>
+        </ul>
+        <form class="d-flex" id="searchForm">
+            <input class="form-control me-2" type="search" placeholder="챔피언, 뉴스 검색..." aria-label="Search" id="searchInput">
+            <button class="btn btn-outline-success" type="submit">검색하기</button>
+        </form>
+        </div>
+    </div>
+    </nav>
+        <!-- 히어로 배너 (Hero Banner) -->
+        <section class="hero d-flex align-items-center justify-content-center text-center py-5">
+            <div class="container">
+                <h1 class="display-3 fw-bold">League of Legends</h1>
+                <p class="lead">적의 넥서스를 파괴하세요! 5v5 MOBA 전투에서 팀과 함께 승리하세요.</p>
+                <a href="#" class="btn btn-primary btn-lg" onclick="alert('즐거운 플레이 되세요')">무료 플레이</a>
+            </div>
+        </section>
+
+    <!-- 챔피언 선택 섹션 (작은 썸네일 PNG로 업데이트!) -->
+        <section class="container my-5">
+            <h2 class="text-center mb-4 accent-purple">챔피언 선택</h2>
+            <p class="text-center mb-5">전투에 뛰어들기, 팀 지원, 또는 그 중간? 당신의 스타일을 선택하세요.</p>
+            <div class="row g-4">
+                <!-- Aatrox -->
+                <div class="col">
+                <div class="card bg-dark text-white border-secondary h-100">
+                <img src="../image/a1.jpeg" class="card-img-top" 
+                        alt="아트록스"
+                        style="height: 200px; object-fit: cover;">
+                    <div class="card-body">
+                    <h5 class="card-title">아트록스 (Aatrox)</h5>
+                    <p class="card-text small">역할: 전사 / 난이도: 상</p>
+                    </div>
+                    <div class="card-footer bg-transparent border-0">
+                    <button class="btn btn-outline-light w-100"
+                        data-bs-toggle="modal"
+                        data-bs-target="#modalAatrox"
+                        data-champ="Aatrox">
+                    상세 보기
+                    </button>
+                    </div>
+                </div>
+                </div>
+    <!-- 모달 (iframe으로 Aatrox.html 불러오기) -->
+    <div class="modal fade" id="modalAatrox" tabindex="-1" aria-labelledby="modalAatroxLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content bg-dark text-white border-secondary">
+    <!-- 헤더 -->
+    <div class="modal-header border-secondary">
+    <h5 class="modal-title" id="modalAatroxLabel">아트록스 (Aatrox) 상세 정보</h5>
+    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <!-- 바디: iframe으로 내용 채움 -->
+    <div class="modal-body p-0" style="height: 65vh; background: #0a0e17;">
+    <iframe
+    src="modals/Aatrox.html"
+    frameborder="0"
+    style="width: 100%; height: 100%; border: none;"
+    allowfullscreen>
+    </iframe>
+    </div>
+    <!-- 푸터 -->
+    <div class="modal-footer border-secondary">
+    <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">닫기</button>
+    </div>
+    </div>
+    </div>
+    </div>
+                <!-- Mel -->
+    <div class="col">
+                <div class="card bg-dark text-white border-secondary h-100">
+        <img src="../image/a3.jpeg" class="card-img-top"
+            alt="멜 (Mel)"
+            style="height: 200px; object-fit: cover; object-position: center 30%;">
+                    <div class="card-body">
+        <h5 class="card-title">멜 (Mel)</h5>
+        <p class="card-text small">역할: 마법사 / 난이도: 중</p>
+        </div>
+        <div class="card-footer bg-transparent border-0">
+        <button class="btn btn-outline-light w-100" data-bs-toggle="modal" data-bs-target="#modalMel" aria-label="멜 상세 정보 보기">
+            상세 보기
+        </button>
+        </div>
+    </div>
+    </div>
+    <!-- Mel 모달 -->
+    <div class="modal fade" id="modalMel" tabindex="-1" aria-labelledby="modalMelLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content bg-dark text-white border-secondary">
+        <div class="modal-header border-secondary">
+            <h5 class="modal-title" id="modalMelLabel">멜 (Mel) 상세 정보</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="닫기"></button>
+        </div>
+        <div class="modal-body p-0" style="height: 65vh; background: #0a0e17;">
+            <iframe src="modals/Mel.html" frameborder="0" style="width: 100%; height: 100%; border: none;" allowfullscreen></iframe>
+        </div>
+        <div class="modal-footer border-secondary">
+            <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">닫기</button>
+        </div>
+        </div>
+    </div>
+    </div>
+    <!-- Yunara -->
+    <div class="col">
+                <div class="card bg-dark text-white border-secondary h-100">
+        <img src="../image/a4.jpeg" class="card-img-top" alt="유나라 (Yunara)" style="height: 200px; object-fit: cover;">
+        <div class="card-body">
+        <h5 class="card-title">유나라 (Yunara)</h5>
+        <p class="card-text small">역할: 서포터 / 난이도: 하</p>
+        </div>
+        <div class="card-footer bg-transparent border-0">
+        <button class="btn btn-outline-light w-100" data-bs-toggle="modal" data-bs-target="#modalYunara" aria-label="유나라 상세 정보 보기">
+            상세 보기
+        </button>
+        </div>
+    </div>
+    </div>
+    <!-- Yunara 모달 -->
+    <div class="modal fade" id="modalYunara" tabindex="-1" aria-labelledby="modalYunaraLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content bg-dark text-white border-secondary">
+        <div class="modal-header border-secondary">
+            <h5 class="modal-title" id="modalYunaraLabel">유나라 (Yunara) 상세 정보</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="닫기"></button>
+        </div>
+        <div class="modal-body p-0" style="height: 65vh; background: #0a0e17;">
+            <iframe src="modals/Yunara.html" frameborder="0" style="width: 100%; height: 100%; border: none;" allowfullscreen></iframe>
+        </div>
+        <div class="modal-footer border-secondary">
+            <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">닫기</button>
+        </div>
+        </div>
+    </div>
+    </div>
+    <!-- Jahen -->
+    <div class="col">
+                <div class="card bg-dark text-white border-secondary h-100">
+        <img src="../image/a5.jpeg" class="card-img-top" alt="자헨 (Jahen)" style="height: 200px; object-fit: cover;">
+        <div class="card-body">
+        <h5 class="card-title">자헨 (Jahen)</h5>
+        <p class="card-text small">역할: 전사 / 난이도: 상</p>
+        </div>
+        <div class="card-footer bg-transparent border-0">
+        <button class="btn btn-outline-light w-100" data-bs-toggle="modal" data-bs-target="#modalJahen" aria-label="자헨 상세 정보 보기">
+            상세 보기
+        </button>
+        </div>
+    </div>
+    </div>
+    <!-- Jahen 모달 -->
+    <div class="modal fade" id="modalJahen" tabindex="-1" aria-labelledby="modalJahenLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content bg-dark text-white border-secondary">
+        <div class="modal-header border-secondary">
+            <h5 class="modal-title" id="modalJahenLabel">자헨 (Jahen) 상세 정보</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="닫기"></button>
+        </div>
+        <div class="modal-body p-0" style="height: 65vh; background: #0a0e17;">
+            <iframe src="modals/Jahen.html" frameborder="0" style="width: 100%; height: 100%; border: none;" allowfullscreen></iframe>
+        </div>
+        <div class="modal-footer border-secondary">
+            <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">닫기</button>
+        </div>
+        </div>
+    </div>
+</div>
+    </section>
+
+    <!-- 뉴스 섹션 (기존 유지) -->
+    <section class="container my-5">
+        <h2 class="text-center mb-4 accent-red">최신 뉴스</h2>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">새로운 챔피언 출시</h5>
+                        <p class="card-text">2026 루나 레벨 이벤트!</p>
+                        <a href="#" class="btn btn-outline-primary">더 보기</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">패치 노트</h5>
+                        <p class="card-text">밸런스 업데이트.</p>
+                        <a href="#" class="btn btn-outline-primary">더 보기</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- ===== 검색 결과 섹션 (기본 숨김) ===== -->
+<section id="searchResults">
+      <!-- 키워드 헤더 -->
+      <div class="search-keyword-header">
+        <h1 id="searchKeywordDisplay"></h1>
+      </div>
+      <!-- 본문: 사이드바 + 콘텐츠 -->
+      <div class="search-body">
+        <div class="container-fluid px-0">
+        <div class="row g-0">
+          <!-- 왼쪽 카테고리 사이드바 -->
+          <div class="col-md-3 col-lg-2 search-sidebar bg-white py-4">
+            <div class="px-3 mb-3" style="font-size:0.8rem; color:#999; text-transform:uppercase; letter-spacing:0.1em;">카테고리</div>
+              <div class="search-category-item active" onclick="switchCategory('champion', this)">
+                챔피언 <span class="count" id="champCount">(0)</span>
+              </div>
+
+              <div class="search-category-item" onclick="switchCategory('news', this)">
+                뉴스 <span class="count" id="newsCount">(0)</span>
+              </div>
+            </div>
+            <!-- 오른쪽 콘텐츠 -->
+            <div class="col-md-9 col-lg-10 search-content-area">
+              <!-- 챔피언 결과 -->
+              <div id="resultChampion">
+                  <h5 class="mb-4" style="color:#333;">챔피언</h5>
+                  <div id="championResultList"></div>
+              </div>
+              <!-- 뉴스 결과 -->
+              <div id="resultNews" style="display:none;">
+                  <h5 class="mb-4" style="color:#333;">뉴스</h5>
+                  <div id="newsResultList"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+</section>
+
+    <script src="js/search.js"></script>
+    <script src="js/toggle.js"></script>
+</body>
+</html>
