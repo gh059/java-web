@@ -63,3 +63,48 @@ body {
 .accent-purple { 
     color: #a020f0; 
 }
+
+/* ── 다운로드 페이지 라이트모드 ───────────────────── */
+
+body.light-mode {
+    background-color: #f8f9fa;
+    color: #212529;
+}
+
+body.light-mode .hero {
+    background:
+        linear-gradient(rgba(255,255,255,0.7),
+        rgba(255,255,255,0.8)),
+        url('../image/download-banner.jpeg') center/cover no-repeat;
+}
+
+body.light-mode .hero h1 {
+    color: #6f42c1;
+    text-shadow: none;
+}
+
+body.light-mode .nav-tabs .nav-link {
+    color: #212529;
+}
+
+body.light-mode .nav-tabs .nav-link.active {
+    background-color: #ffffff;
+    color: #6f42c1;
+    border-color: #6f42c1;
+}
+
+body.light-mode .table {
+    --bs-table-bg: #ffffff;
+    --bs-table-color: #212529;
+    --bs-table-border-color: #dee2e6;
+}
+
+body.light-mode .table th {
+    background-color: #e9ecef;
+    color: #212529;
+}
+
+body.light-mode .card {
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+}

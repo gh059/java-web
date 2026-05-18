@@ -63,8 +63,28 @@
 
 1: 로그인과 로그아웃 페이지 추가
 2: AuthResource.java, User.java,DataSeedar.java, login 파일 추가
+3:  임시 사용자 데이터 삽입
 <div align="center">
 <img src="image-9.png" width="45%" alt="1 화면">
 <img src="image-10.png" width="45%" alt="2 화면">
+<img src="image-11.png" width="45%" alt="3 화면">
+</div>
+<br>
+
+## 11주차 수업 내용
+
+1: 세션 활성화 설정 추가
+2: DB 사용자 체크
+3: /logout 로그아웃 엔드포인트
+4: 회원가입 페이지 추가
+5: 회원 테이블 수정
+6: SHA-256 해시, 모달창을 사용해 가입확인창 추가
+7: 가입완료 페이지 추가
+<div align="center">
+<img src="image-12.png" width="45%" alt="1 화면">
+<img src="image-13.png" width="45%" alt="2 화면">
+<img src="image-14.png" width="45%" alt="3 화면">
+<img src="image-15.png" width="45%" alt="3 화면">
+<img src="image-16.png" width="45%" alt="3 화면">
 </div>
 <br>
