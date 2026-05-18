@@ -80,11 +80,16 @@
 5: 회원 테이블 수정
 6: SHA-256 해시, 모달창을 사용해 가입확인창 추가
 7: 가입완료 페이지 추가
-<div align="center">
-<img src="image-12.png" width="45%" alt="1 화면">
-<img src="image-13.png" width="45%" alt="2 화면">
-<img src="image-14.png" width="45%" alt="3 화면">
-<img src="image-15.png" width="45%" alt="3 화면">
-<img src="image-16.png" width="45%" alt="3 화면">
-</div>
-<br>
+<p align="center">
+  <img src="image-12.png" width="45%">
+  <img src="image-13.png" width="45%">
+</p>
+
+<p align="center">
+  <img src="image-14.png" width="45%">
+  <img src="image-15.png" width="45%">
+</p>
+
+<p align="center">
+  <img src="image-16.png" width="60%">
+</p>
