@@ -93,3 +93,10 @@
 <p align="center">
   <img src="image-16.png" width="60%">
 </p>
+
+## 12주차 수업 내용
+1: 메인 페이지 이름 변경
+2: 로그인 후 로그아웃 버튼 생성
+<div align="center">
+<img src="image-17.png" width="45%" alt="1 화면">
+<img src="image-18.png" width="45%" alt="1 화면">

@@ -1,122 +1,170 @@
-/* ── 기본 레이아웃 ──────────────────────────────────────────── */
-body { background-color: #0a0e17; color: #fff; font-family: 'Arial', sans-serif; }
-.navbar { background-color: #000; }
-.hero { background: linear-gradient(to bottom, #1e1e1e, #0a0e17); min-height: 60vh; }
+/* ─────────────────────────────────────────────
+    기본 설정
+───────────────────────────────────────────── */
+body {
+    background-color: #0a0e17;
+    color: #ffffff;
+    font-family: 'Arial', sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+}
 
-/* ── 강조 색상 ──────────────────────────────────────────────── */
-.accent-purple { color: #a020f0; }
-.accent-red { color: #ff0000; }
+/* ─────────────────────────────────────────────
+    네비게이션
+───────────────────────────────────────────── */
+.navbar {
+    background-color: #000000;
+    transition: background-color 0.3s;
+}
 
-/* ── 카드 ────────────────────────────────────────────────────── */
-.card { background-color: #1e1e1e; border: none; transition: transform 0.3s, box-shadow 0.3s; }
-.card:hover { transform: scale(1.05); box-shadow: 0 10px 20px rgba(160, 32, 240, 0.5); }
-.card-img-top { height: 200px; object-fit: cover; border-radius: 10px 10px 0 0; }
+.hero {
+    background: linear-gradient(to bottom, #1e1e1e, #0a0e17);
+    min-height: 60vh;
+}
 
-/* ── 버튼 ────────────────────────────────────────────────────── */
-.btn-primary { background-color: #a020f0; border: none; }
-.btn-primary:hover { background-color: #800080; }
+/* ─────────────────────────────────────────────
+    강조 색상
+───────────────────────────────────────────── */
+.accent-purple {
+    color: #a020f0;
+}
 
-/* ── 검색 결과 페이지 ────────────────────────────────────────── */
-#searchResults { display: none; }
+.accent-red {
+    color: #ff0000;
+}
 
+/* ─────────────────────────────────────────────
+    카드
+───────────────────────────────────────────── */
+.card {
+    background-color: #1e1e1e;
+    border: none;
+    color: #ffffff;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(160, 32, 240, 0.5);
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+}
+
+/* ─────────────────────────────────────────────
+    버튼
+───────────────────────────────────────────── */
+.btn-primary {
+    background-color: #a020f0;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #800080;
+}
+
+/* ─────────────────────────────────────────────
+    검색 결과 페이지
+───────────────────────────────────────────── */
+#searchResults {
+    display: none;
+}
+
+/* 검색 헤더 */
 .search-keyword-header {
     background: #0a0a0a;
-    background-image: radial-gradient(ellipse at center, #1a1a1a 0%, #000 70%);
+    background-image: radial-gradient(
+        ellipse at center,
+        #1a1a1a 0%,
+        #000000 70%
+    );
     min-height: 180px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-bottom: 2px solid #c8a96e;
 }
+
 .search-keyword-header h1 {
     font-size: 2.8rem;
     font-weight: 700;
-    color: #fff;
+    color: #ffffff;
     letter-spacing: 0.05em;
 }
 
-.search-body { background-color: #111827; padding-bottom: 60px; }
-.search-sidebar { border-right: 1px solid #ddd; }
+/* 검색 본문 */
+.search-body {
+    background-color: #111827;
+    padding-bottom: 60px;
+    min-height: 100vh;
+    transition: background-color 0.3s;
+}
 
+/* 사이드바 */
+.search-sidebar {
+    background-color: #0f172a;
+    border-right: 1px solid #2a2f3a;
+    transition: background-color 0.3s;
+}
+
+/* 카테고리 아이템 */
 .search-category-item {
     padding: 14px 20px;
     cursor: pointer;
-    color:  #d1d5db;
+    color: #d1d5db;
     font-size: 0.95rem;
     border-left: 3px solid transparent;
+    background-color: transparent;
     transition: all 0.2s;
 }
-.search-category-item:hover { background: #1e293b;}
+
+.search-category-item:hover {
+    background-color: #1e293b;
+}
+
 .search-category-item.active {
     border-left: 3px solid #c8253a;
+    background-color: #1e293b;
+    color: #ffffff;
     font-weight: 700;
-    color: #fff;
-    background: #1e293b;
 }
-.search-category-item .count { color: #999; font-size: 0.85rem; margin-left: 6px; }
 
-.search-content-area { padding: 30px;  color: white; }
+.search-category-item .count {
+    color: #9ca3af;
+    font-size: 0.85rem;
+    margin-left: 6px;
+}
 
+/* 검색 콘텐츠 */
+.search-content-area {
+    padding: 30px;
+    color: #ffffff;
+}
+
+/* 검색 결과 카드 */
 .search-result-card {
-    background:  #1e1e1e;
-    color: white;
+    background-color: #1e1e1e;
+    color: #ffffff;
     border: none;
     border-radius: 6px;
     margin-bottom: 16px;
     transition: box-shadow 0.2s;
 }
-.search-result-card:hover { box-shadow: 0 4px 15px rgba(0,0,0,0.15); }
-.search-result-card img { width: 110px; height: 80px; object-fit: cover; border-radius: 6px 0 0 6px; }
 
-.search-sidebar {
-    border-right: 1px solid #2a2f3a;
-    background-color: #0f172a;
+.search-result-card:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-.no-result { text-align: center; padding: 80px 20px; color: #666; }
-.no-result h4 { color: #333; }
-
-/* ── [추가] 테마 토글 버튼 (폰트 크기, 색상 등 ) ──────────────── */
-#themeToggleBtn { font-size: 1.1rem; color: #fff; }
-body.light-mode #themeToggleBtn { color: #212529; }
-/* ── [추가] 라이트 모드 (다양한 색상 정보 ─────────────────────── */
-body.light-mode { background-color: #f8f9fa; color: #212529; }
-body.light-mode .navbar { background-color: #e9ecef !important; }
-body.light-mode .navbar .navbar-brand,
-body.light-mode .navbar .nav-link { color: #212529 !important; }
-body.light-mode .hero { background: linear-gradient(to bottom, #dce3ea, #f8f9fa); }
-body.light-mode .card { background-color: #ffffff; color: #212529; border: 1px solid #dee2e6; }
-body.light-mode .card-title { color: #212529; }
-body.light-mode .card-text { color: #555; }
-
-/* ── 검색 페이지 라이트모드 ───────────────────── */
-
-body.light-mode .search-body {
-    background-color: #f0ede8;
+.search-result-card img {
+    width: 110px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 6px 0 0 6px;
 }
 
-body.light-mode .search-result-card {
-    background: #ffffff;
-    color: #212529;
-}
-
-body.light-mode .search-content-area {
-    color: #212529;
-}
-
-body.light-mode .search-category-item {
-    color: #333;
-}
-
-body.light-mode .search-category-item:hover {
-    background: #e0dcd5;
-}
-
-body.light-mode .search-category-item.active {
-    background: #e8e4df;
-}
-/* ── 검색 결과 텍스트 ───────────────────── */
-
+/* 검색 결과 텍스트 */
 .result-title {
     font-weight: 700;
     font-size: 1rem;
@@ -134,8 +182,108 @@ body.light-mode .search-category-item.active {
     color: #d1d5db;
 }
 
-/* ── 라이트모드 검색 결과 텍스트 ───────────────────── */
+/* 결과 없음 */
+.no-result {
+    text-align: center;
+    padding: 80px 20px;
+    color: #9ca3af;
+}
 
+.no-result h4 {
+    color: #ffffff;
+}
+
+/* ─────────────────────────────────────────────
+    테마 토글 버튼
+───────────────────────────────────────────── */
+#themeToggleBtn {
+    font-size: 1.1rem;
+    color: #ffffff;
+    transition: color 0.3s;
+}
+
+/* ─────────────────────────────────────────────
+    라이트 모드
+───────────────────────────────────────────── */
+body.light-mode {
+    background-color: #f8f9fa;
+    color: #212529;
+}
+
+/* 네비게이션 */
+body.light-mode .navbar {
+    background-color: #e9ecef !important;
+}
+
+body.light-mode .navbar .navbar-brand,
+body.light-mode .navbar .nav-link {
+    color: #212529 !important;
+}
+
+/* 토글 버튼 */
+body.light-mode #themeToggleBtn {
+    color: #212529;
+}
+
+/* 히어로 */
+body.light-mode .hero {
+    background: linear-gradient(to bottom, #dce3ea, #f8f9fa);
+}
+
+/* 카드 */
+body.light-mode .card {
+    background-color: #ffffff;
+    color: #212529;
+    border: 1px solid #dee2e6;
+}
+
+body.light-mode .card-title {
+    color: #212529;
+}
+
+body.light-mode .card-text {
+    color: #555555;
+}
+
+/* 검색 페이지 */
+body.light-mode .search-body {
+    background-color: #f0ede8;
+}
+
+/* 검색 사이드바 */
+body.light-mode .search-sidebar {
+    background-color: #f8f9fa;
+    border-right: 1px solid #d6d3d1;
+}
+
+/* 카테고리 */
+body.light-mode .search-category-item {
+    color: #333333;
+    background-color: transparent;
+}
+
+body.light-mode .search-category-item:hover {
+    background-color: #e0dcd5;
+}
+
+body.light-mode .search-category-item.active {
+    background-color: #e8e4df;
+    color: #111827;
+}
+
+/* 검색 결과 카드 */
+body.light-mode .search-result-card {
+    background-color: #ffffff;
+    color: #212529;
+    border: 1px solid #dee2e6;
+}
+
+/* 콘텐츠 */
+body.light-mode .search-content-area {
+    color: #212529;
+}
+
+/* 검색 결과 텍스트 */
 body.light-mode .result-title {
     color: #111827;
 }
@@ -146,4 +294,13 @@ body.light-mode .result-eng {
 
 body.light-mode .result-info {
     color: #4b5563;
+}
+
+/* 결과 없음 */
+body.light-mode .no-result {
+    color: #6b7280;
+}
+
+body.light-mode .no-result h4 {
+    color: #212529;
 }
