@@ -29,68 +29,157 @@
 <body>
 
     <!-- 헤더 (Navbar) -->
-    <nav class="navbar navbar-expand-lg" data-bs-theme="dark">
-    <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-        <img src="../image/a2.jpeg" alt="LOL 로고" width="40" height="40" class="d-inline-block align-text-top">
-        <button class="btn border-0" id="themeToggleBtn" onclick="toggleTheme()">
-    🌙DARK
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark"
+     data-bs-theme="dark">
+
+  <div class="container-fluid">
+
+    <!-- 로고 -->
+    <a class="navbar-brand d-flex align-items-center" href="#">
+      <img src="../image/a2.jpeg"
+           alt="LOL 로고"
+           width="40"
+           height="40"
+           class="d-inline-block align-text-top me-2">
+    </a>
+      <button class="btn border-0 text-white"
+              id="themeToggleBtn"
+              onclick="toggleTheme()">
+        🌙DARK
+      </button>
+  
+
+    <!-- 모바일 토글 버튼 -->
+    <button class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+
+      <span class="navbar-toggler-icon"></span>
     </button>
-        </a>
-    </div>
-    </nav>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+
+    <!-- 메뉴 -->
+    <div class="collapse navbar-collapse"
+         id="navbarSupportedContent">
+
+      <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+
+        <li class="nav-item">
+          <a class="nav-link active"
+             aria-current="page"
+             href="#">
+            뉴스
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            챔피온
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link"
+             href="main_page_sub/download.html">
+            다운로드
+          </a>
+        </li>
+
+        <!-- 프로필 -->
+        <li class="nav-item">
+            <a class="nav-link"
+            href="/profile"
+            id="profileNavLink"
+            data-bs-toggle="tooltip"
+            data-bs-placement="bottom">
+        👤프로필
+            </a>
+        </li>
+
+        <!-- 로그아웃 -->
+        <li class="nav-item">
+          <a class="nav-link btn btn-outline-danger btn-sm px-3"
+             href="/logout">
+            로그아웃
+          </a>
+        </li>
+
+        <!-- 외부 사이트 -->
+        <li class="nav-item dropdown">
+
+          <a class="nav-link dropdown-toggle"
+             href="#"
+             id="navbarDropdown"
+             role="button"
+             data-bs-toggle="dropdown"
+             aria-expanded="false">
+
+            외부웹사이트
+          </a>
+
+          <ul class="dropdown-menu"
+              aria-labelledby="navbarDropdown">
+
+            <li>
+              <a class="dropdown-item"
+                 href="https://lol.ps/"
+                 target="_blank">
+                롤 전적 사이트
+              </a>
+            </li>
+
+            <li>
+              <a class="dropdown-item" href="#">
+                Another action
+              </a>
+            </li>
+
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <a class="dropdown-item" href="#">
+                Something else here
+              </a>
+            </li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link disabled"
+             href="#"
+             tabindex="-1"
+             aria-disabled="true">
+            Disabled
+          </a>
+        </li>
+
+      </ul>
+
+      <!-- 검색 -->
+      <form class="d-flex" id="searchForm">
+
+        <input class="form-control me-2"
+               type="search"
+               placeholder="챔피언, 뉴스 검색..."
+               aria-label="Search"
+               id="searchInput">
+
+        <button class="btn btn-outline-success"
+                type="submit">
+          검색하기
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">뉴스</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="#">챔피온</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="main_page_sub/download.html">다운로드</a>
-            </li>
-            <!-- 기존 로그아웃 버튼 앞에 추가 -->
-            <li class="nav-item">
-            <a class="nav-link" href="/profile">
-            프로필
-            </a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link btn btn-outline-danger btn-sm px-3"
-            href="/logout">로그아웃</a>
-            </li>
-            <!-- 기존 로그인 버튼 제거, 로그아웃 버튼 추가
-            <li class="nav-item">
-            <a class="nav-link btn btn-outline-danger btn-sm px-3"
-            href="/logout">로그아웃</a>
-            </li> -->
-            <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                외부웹사이트
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="https://lol.ps/" target="_blank">롤 전적 사이트</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-            </li>
-        </ul>
-        <form class="d-flex" id="searchForm">
-            <input class="form-control me-2" type="search" placeholder="챔피언, 뉴스 검색..." aria-label="Search" id="searchInput">
-            <button class="btn btn-outline-success" type="submit">검색하기</button>
-        </form>
-        </div>
+
+      </form>
+
     </div>
-    </nav>
+  </div>
+</nav>
         <!-- 히어로 배너 (Hero Banner) -->
         <section class="hero d-flex align-items-center justify-content-center text-center py-5">
             <div class="container">
@@ -298,23 +387,25 @@
             </div>
             <!-- 오른쪽 콘텐츠 -->
             <div class="col-md-9 col-lg-10 search-content-area">
-              <!-- 챔피언 결과 -->
-              <div id="resultChampion">
-                  <h5 class="mb-4" style="color:#333;">챔피언</h5>
-                  <div id="championResultList"></div>
-              </div>
-              <!-- 뉴스 결과 -->
-              <div id="resultNews" style="display:none;">
-                  <h5 class="mb-4" style="color:#333;">뉴스</h5>
-                  <div id="newsResultList"></div>
-              </div>
+                <!-- 챔피언 결과 -->
+                <div id="resultChampion">
+                    <h5 class="mb-4" style="color:#333;">챔피언</h5>
+                    <div id="championResultList"></div>
+                </div>
+                <!-- 뉴스 결과 -->
+                <div id="resultNews" style="display:none;">
+                <h5 class="mb-4" style="color:#333;">뉴스</h5>
+                <div id="newsResultList"></div>
+                </div>
             </div>
-          </div>
+            </div>
         </div>
-      </div>
+        </div>
 </section>
 
-    <script src="js/search.js"></script>
-    <script src="js/toggle.js"></script>
+<script src="../js/search.js"></script>
+<script src="../js/toggle.js"></script>
+<script src="../js/profile.js"></script>
+
 </body>
 </html>

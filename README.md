@@ -99,4 +99,20 @@
 2: 로그인 후 로그아웃 버튼 생성
 <div align="center">
 <img src="image-17.png" width="45%" alt="1 화면">
-<img src="image-18.png" width="45%" alt="1 화면">
+<img src="image-18.png" width="45%" alt="2 화면">
+</div>
+<br>
+
+## 13주차 수업 내용
+1: 프로필 페이지 완성
+네비바에 프로필 링크 추가
+/profile - 엔드포인트 등록
+2: 부트스트랩5기반 toast로 구현
+3: 브라우저 기본 알림창(toast html 추가)
+4: 네바바 사용자명 동적 표시
+<div align="center">
+<img src="image-19.png" width="45%" alt="1 화면">
+<img src="image-20.png" width="45%" alt="2 화면">
+<img src="image-21.png" width="45%" alt="3 화면">
+</div>
+<br>
