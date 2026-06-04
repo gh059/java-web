@@ -36,17 +36,14 @@
 <body>
 
     <!-- 헤더 (Navbar) -->
-  <nav class="navbar navbar-expand-lg" data-bs-theme="dark">
-  <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+  <nav class="navbar navbar-expand-lg bg-dark navbar-dark" data-bs-theme="dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">
       <img src="image/a2.jpeg" alt="LOL 로고" width="40" height="40" class="d-inline-block align-text-top">
-      <button class="btn border-0" id="themeToggleBtn">
+      <button class="btn border-0" id="themeToggleBtn" type="button">
 🌙DARK
 </button>
     </a>
-  </div>
-</nav>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -120,31 +117,6 @@
                 </div>
             </div>
             </div>
-<!-- 모달 (iframe으로 Aatrox.html 불러오기) -->
-  <div class="modal fade" id="modalAatrox" tabindex="-1" aria-labelledby="modalAatroxLabel" aria-hidden="true">
-  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
-  <div class="modal-content bg-dark text-white border-secondary">
-<!-- 헤더 -->
-<div class="modal-header border-secondary">
-<h5 class="modal-title" id="modalAatroxLabel">아트록스 (Aatrox) 상세 정보</h5>
-<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-</div>
-<!-- 바디: iframe으로 내용 채움 -->
-<div class="modal-body p-0" style="height: 65vh; background: #0a0e17;">
-<iframe
-src="modals/Aatrox.html"
-frameborder="0"
-style="width: 100%; height: 100%; border: none;"
-allowfullscreen>
-</iframe>
-</div>
-<!-- 푸터 -->
-<div class="modal-footer border-secondary">
-<button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">닫기</button>
-</div>
-</div>
-</div>
-</div>
             <!-- Mel -->
   <div class="col">
             <div class="card bg-dark text-white border-secondary h-100">
@@ -159,23 +131,6 @@ allowfullscreen>
       <button class="btn btn-outline-light w-100" data-bs-toggle="modal" data-bs-target="#modalMel" aria-label="멜 상세 정보 보기">
         상세 보기
       </button>
-    </div>
-  </div>
-</div>
-<!-- Mel 모달 -->
-<div class="modal fade" id="modalMel" tabindex="-1" aria-labelledby="modalMelLabel" aria-hidden="true">
-  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
-    <div class="modal-content bg-dark text-white border-secondary">
-      <div class="modal-header border-secondary">
-        <h5 class="modal-title" id="modalMelLabel">멜 (Mel) 상세 정보</h5>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="닫기"></button>
-      </div>
-      <div class="modal-body p-0" style="height: 65vh; background: #0a0e17;">
-        <iframe src="modals/Mel.html" frameborder="0" style="width: 100%; height: 100%; border: none;" allowfullscreen></iframe>
-      </div>
-      <div class="modal-footer border-secondary">
-        <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">닫기</button>
-      </div>
     </div>
   </div>
 </div>
@@ -194,23 +149,6 @@ allowfullscreen>
     </div>
   </div>
 </div>
-<!-- Yunara 모달 -->
-<div class="modal fade" id="modalYunara" tabindex="-1" aria-labelledby="modalYunaraLabel" aria-hidden="true">
-  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
-    <div class="modal-content bg-dark text-white border-secondary">
-      <div class="modal-header border-secondary">
-        <h5 class="modal-title" id="modalYunaraLabel">유나라 (Yunara) 상세 정보</h5>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="닫기"></button>
-      </div>
-      <div class="modal-body p-0" style="height: 65vh; background: #0a0e17;">
-        <iframe src="modals/Yunara.html" frameborder="0" style="width: 100%; height: 100%; border: none;" allowfullscreen></iframe>
-      </div>
-      <div class="modal-footer border-secondary">
-        <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">닫기</button>
-      </div>
-    </div>
-  </div>
-</div>
 <!-- Jahen -->
   <div class="col">
             <div class="card bg-dark text-white border-secondary h-100">
@@ -226,27 +164,9 @@ allowfullscreen>
     </div>
   </div>
 </div>
-<!-- Jahen 모달 -->
-<div class="modal fade" id="modalJahen" tabindex="-1" aria-labelledby="modalJahenLabel" aria-hidden="true">
-  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
-    <div class="modal-content bg-dark text-white border-secondary">
-      <div class="modal-header border-secondary">
-        <h5 class="modal-title" id="modalJahenLabel">자헨 (Jahen) 상세 정보</h5>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="닫기"></button>
-      </div>
-      <div class="modal-body p-0" style="height: 65vh; background: #0a0e17;">
-        <iframe src="modals/Jahen.html" frameborder="0" style="width: 100%; height: 100%; border: none;" allowfullscreen></iframe>
-      </div>
-      <div class="modal-footer border-secondary">
-        <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">닫기</button>
-      </div>
-    </div>
-  </div>
-</div>
     </section>
-
     <!-- 뉴스 섹션 (기존 유지) -->
-    <section class="container my-5">
+    <section class="container my-5" id="newsSection">
         <h2 class="text-center mb-4 accent-red">최신 뉴스</h2>
         <div class="row g-4">
             <div class="col-md-6 col-lg-4">
@@ -281,7 +201,7 @@ allowfullscreen>
         <div class="container-fluid px-0">
         <div class="row g-0">
           <!-- 왼쪽 카테고리 사이드바 -->
-          <div class="col-md-3 col-lg-2 search-sidebar bg-white py-4">
+          <div class="col-md-3 col-lg-2 search-sidebar py-4">
             <div class="px-3 mb-3" style="font-size:0.8rem; color:#999; text-transform:uppercase; letter-spacing:0.1em;">카테고리</div>
               <div class="search-category-item active" onclick="switchCategory('champion', this)">
                 챔피언 <span class="count" id="champCount">(0)</span>
@@ -295,12 +215,12 @@ allowfullscreen>
             <div class="col-md-9 col-lg-10 search-content-area">
               <!-- 챔피언 결과 -->
               <div id="resultChampion">
-                  <h5 class="mb-4" style="color:#333;">챔피언</h5>
+                  <h5 class="mb-4">챔피언</h5>
                   <div id="championResultList"></div>
               </div>
               <!-- 뉴스 결과 -->
               <div id="resultNews" style="display:none;">
-                  <h5 class="mb-4" style="color:#333;">뉴스</h5>
+                  <h5 class="mb-4">뉴스</h5>
                   <div id="newsResultList"></div>
               </div>
             </div>
@@ -309,6 +229,78 @@ allowfullscreen>
       </div>
 </section>
 
+<!-- ===== 모달 섹션 (공통 사용을 위해 외부로 이동) ===== -->
+<!-- Aatrox 모달 -->
+<div class="modal fade" id="modalAatrox" tabindex="-1" aria-labelledby="modalAatroxLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content bg-dark text-white border-secondary">
+            <div class="modal-header border-secondary">
+                <h5 class="modal-title" id="modalAatroxLabel">아트록스 (Aatrox) 상세 정보</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-0" style="height: 65vh; background: #0a0e17;">
+                <iframe src="modals/Aatrox.html" frameborder="0" style="width: 100%; height: 100%; border: none;" allowfullscreen></iframe>
+            </div>
+            <div class="modal-footer border-secondary">
+                <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">닫기</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Mel 모달 -->
+<div class="modal fade" id="modalMel" tabindex="-1" aria-labelledby="modalMelLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content bg-dark text-white border-secondary">
+            <div class="modal-header border-secondary">
+                <h5 class="modal-title" id="modalMelLabel">멜 (Mel) 상세 정보</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="닫기"></button>
+            </div>
+            <div class="modal-body p-0" style="height: 65vh; background: #0a0e17;">
+                <iframe src="modals/Mel.html" frameborder="0" style="width: 100%; height: 100%; border: none;" allowfullscreen></iframe>
+            </div>
+            <div class="modal-footer border-secondary">
+                <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">닫기</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Yunara 모달 -->
+<div class="modal fade" id="modalYunara" tabindex="-1" aria-labelledby="modalYunaraLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content bg-dark text-white border-secondary">
+            <div class="modal-header border-secondary">
+                <h5 class="modal-title" id="modalYunaraLabel">유나라 (Yunara) 상세 정보</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="닫기"></button>
+            </div>
+            <div class="modal-body p-0" style="height: 65vh; background: #0a0e17;">
+                <iframe src="modals/Yunara.html" frameborder="0" style="width: 100%; height: 100%; border: none;" allowfullscreen></iframe>
+            </div>
+            <div class="modal-footer border-secondary">
+                <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">닫기</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Jahen 모달 -->
+<div class="modal fade" id="modalJahen" tabindex="-1" aria-labelledby="modalJahenLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content bg-dark text-white border-secondary">
+            <div class="modal-header border-secondary">
+                <h5 class="modal-title" id="modalJahenLabel">자헨 (Jahen) 상세 정보</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="닫기"></button>
+            </div>
+            <div class="modal-body p-0" style="height: 65vh; background: #0a0e17;">
+                <iframe src="modals/Jahen.html" frameborder="0" style="width: 100%; height: 100%; border: none;" allowfullscreen></iframe>
+            </div>
+            <div class="modal-footer border-secondary">
+                <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">닫기</button>
+            </div>
+        </div>
+    </div>
+</div>
 
     <script src="js/search.js"></script>
     <script src="js/toggle.js"></script>

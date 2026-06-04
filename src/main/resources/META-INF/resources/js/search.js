@@ -8,11 +8,9 @@
 // ── 챔피언 데이터 ──────────────────────────────────────────────
 const CHAMPIONS = [
     { name: '아트록스', engName: 'Aatrox', role: '전사', lane: '탑', img: 'image/a1.jpeg', difficulty: '상', modalId: 'modalAatrox' },
-    { name: '사일러스', engName: 'Sylas', role: '마법사', lane: '정글/미드', img: 'https://ddragon.leagueoflegends.com/cdn/15.24.1/img/champion/Sylas.png', difficulty: '중', modalId: 'modalSylas' },
-    { name: '애니비아', engName: 'Anivia', role: '마법사', lane: '미드', img: 'https://ddragon.leagueoflegends.com/cdn/15.24.1/img/champion/Anivia.png', difficulty: '상', modalId: 'modalAnivia'},
-    { name: '브라이어', engName: 'Briar', role: '전사', lane: '정글', img: 'https://ddragon.leagueoflegends.com/cdn/15.24.1/img/champion/Briar.png', difficulty: '중', modalId: 'modalBriar' },
-    { name: '잭스', engName: 'Jax', role: '전사', lane: '탑', img: 'https://ddragon.leagueoflegends.com/cdn/15.24.1/img/champion/Jax.png', difficulty: '하', modalId: 'modalJax'},
-    { name: '징크스', engName: 'Jinx', role: '원거리딜러', lane: '원딜', img: 'https://ddragon.leagueoflegends.com/cdn/15.24.1/img/champion/Jinx.png', difficulty: '중', modalId: 'modalJinx' },
+    { name: '멜', engName: 'Mel', role: '마법사', lane: '미드', img: 'image/a3.jpeg', difficulty: '중', modalId: 'modalMel' },
+    { name: '유나라', engName: 'Yunara', role: '서포터', lane: '바텀', img: 'image/a4.jpeg', difficulty: '하', modalId: 'modalYunara' },
+    { name: '자헨', engName: 'Jahen', role: '전사', lane: '탑', img: 'image/a5.jpeg', difficulty: '상', modalId: 'modalJahen' }
 ];
 
 // ── 뉴스 데이터 ──────────────────────────────────────────────
@@ -62,7 +60,7 @@ function performSearch(query) {
 newsList.innerHTML = `<div class="no-result"><h4>검색 결과 없음</h4><p>"${query}"에 해당하는 뉴스가 없습니다.</p></div>`;
     } else {
         newsList.innerHTML = newsResults.map(n => `
-            <div class="search-result-card p-3">
+            <div class="search-result-card p-3" onclick="showMainScreen('newsSection')" style="cursor:pointer;">
         <span style="font-size:0.75rem; background:#c8253a; color:#fff; padding:2px 8px; border-radius:3px;">
             ${n.category}
         </span>
@@ -102,7 +100,11 @@ document.getElementById('searchForm').addEventListener('submit', function(e) {
     performSearch(query);
 });
     
-function showMainScreen() {
+function showMainScreen(targetId) {
+    // 1. 검색 입력창 초기화
+    const searchInput = document.getElementById('searchInput');
+    if (searchInput) searchInput.value = '';
+
     // 검색 결과 숨기기
     document.getElementById('searchResults').classList.add('d-none');
     document.getElementById('searchResults').style.display = 'none';
@@ -113,4 +115,16 @@ function showMainScreen() {
             s.classList.remove('d-none');
         }
     });
+
+    // 2. 스크롤 이동 처리
+    if (targetId) {
+        const target = document.getElementById(targetId);
+        if (target) {
+            // 해당 섹션으로 부드럽게 이동
+            target.scrollIntoView({ behavior: 'smooth' });
+        }
+    } else {
+        // 인자가 없으면 페이지 상단으로 이동
+        window.scrollTo(0, 0);
+    }
 }
