@@ -23,27 +23,34 @@ public class AuthResource {
     @Inject
     RoutingContext context; // Quarkus Vert.x 세션 접근
 
-    // ==========================================
-    // 1. 메인 페이지 분기 (GET /)
-    // ==========================================
+    /**
+     * 메인 페이지 분기 처리
+     * 로그인 여부에 따라 다른 초기 화면을 보여줍니다.
+     */
     @GET
     @Produces(MediaType.TEXT_HTML)
     public Response mainPage() {
-        String loginUser = context.session().get("loginUser");
-        System.out.println("=== [GET /] 세션 ID : " + context.session().id());
-        System.out.println("=== [GET /] loginUser : " + loginUser);
+        // 세션이 null일 경우를 대비한 방어 코드
+        String loginUser = (context.session() != null) ? context.session().get("loginUser") : null;
         
+        // 사용자 상태에 따른 HTML 경로 결정
         String htmlPath = (loginUser != null)
             ? "META-INF/resources/login/main_after_login.html"
             : "META-INF/resources/main_index.html";
             
         InputStream html = getClass().getClassLoader().getResourceAsStream(htmlPath);
+        
+        if (html == null) {
+            return Response.status(404)
+                .entity("<h1>Resource Not Found</h1><p>" + htmlPath + " 파일을 찾을 수 없습니다.</p>")
+                .build();
+        }
         return Response.ok(html).build();
     }
 
-    // ==========================================
-    // 2. 로그인 페이지 이동 및 처리
-    // ==========================================
+    /**
+     * 로그인 페이지 이동
+     */
     @GET
     @Path("/login")
     @Produces(MediaType.TEXT_HTML)
@@ -54,6 +61,9 @@ public class AuthResource {
         return Response.ok(html).build();
     }
 
+    /**
+     * 로그인 로직 처리: ID/PW 검증 및 세션 생성
+     */
     @POST
     @Path("/login_check")
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
@@ -68,14 +78,17 @@ public class AuthResource {
                 .build();
         }
         
-        // 세션에 로그인 정보 저장
+        // 세션에 로그인 사용자 ID 저장
         context.session().put("loginUser", username);
 
         return Response
-            .seeOther(URI.create("/after_login"))
+            .seeOther(URI.create("/after_login?login_success=true"))
             .build();
     }
     
+    /**
+     * 로그인 성공 후 페이지 (세션 검증 포함)
+     */
     @GET
     @Path("/after_login")
     @Produces(MediaType.TEXT_HTML)
@@ -98,12 +111,17 @@ public class AuthResource {
         InputStream html = getClass()
             .getClassLoader()
             .getResourceAsStream("META-INF/resources/login/main_after_login.html");
+            
+        if (html == null) {
+            return Response.status(404).entity("로그인 후 페이지 파일을 찾을 수 없습니다.").build();
+        }
+        
         return Response.ok(html).build();
     }
 
-    // ==========================================
-    // 3. 로그아웃 처리
-    // ==========================================
+    /**
+     * 로그아웃 처리 및 세션 파기
+     */
     @GET
     @Path("/logout")
     public Response logout() {
@@ -125,9 +143,9 @@ public class AuthResource {
             .build();
     }
 
-    // ==========================================
-    // 4. 회원가입 페이지 이동 및 처리
-    // ==========================================
+    /**
+     * 회원가입 페이지 이동
+     */
     @GET
     @Path("/register")
     @Produces(MediaType.TEXT_HTML)
@@ -138,17 +156,29 @@ public class AuthResource {
         return Response.ok(html).build();
     }
 
+    /**
+     * 회원가입 데이터 저장 (비밀번호 해시 저장)
+     */
     @POST
     @Path("/register_check")
     @Transactional
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     @Produces(MediaType.TEXT_HTML)
+    // 회원가입 데이터 검증 및 저장
     public Response registerCheck(
             @FormParam("username") String username,
             @FormParam("password") String password, // SHA-256 해시값
             @FormParam("email") String email,
             @FormParam("phone") String phone) {
     
+        // [보안강화] 서버측 정규식 재검증 (JS 우회 방어)
+        if (username == null || !username.matches("^[a-zA-Z0-9]{4,20}$")) {
+            return Response.seeOther(URI.create("/register?error=invalid_input")).build();
+        }
+        if (email == null || !email.matches("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$")) {
+            return Response.seeOther(URI.create("/register?error=invalid_input")).build();
+        }
+
         // ① 아이디 중복 체크
         if (User.findByUsername(username) != null) {
             return Response
@@ -171,9 +201,9 @@ public class AuthResource {
         newUser.phone = phone;
         newUser.persist();
     
-        // ④ 가입 완료 페이지로 이동
+        // ④ 메인 페이지로 이동하며 성공 메시지 파라미터 전달 (Toast 표시용)
         return Response
-            .seeOther(URI.create("/register_success"))
+            .seeOther(URI.create("/?register_success=true"))
             .build();
     }
 
@@ -266,7 +296,10 @@ public class AuthResource {
 
             // ② 확장자 검사
             String original = file.fileName();
-            String ext = original.substring(original.lastIndexOf('.') + 1).toLowerCase();
+            // [보안강화] 파일명 세니타이징 및 확장자 추출 개선
+            String fileNameOnly = Paths.get(original).getFileName().toString();
+            String ext = fileNameOnly.substring(fileNameOnly.lastIndexOf('.') + 1).toLowerCase();
+            
             if (!ext.matches("jpg|jpeg|png|gif|webp")) {
                 return Response.seeOther(URI.create("/profile?error=invalid_type")).build();
             }

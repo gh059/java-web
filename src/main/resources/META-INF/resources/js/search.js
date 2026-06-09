@@ -4,7 +4,9 @@
 // if (!query) return;
 // window.open('https://www.google.com/search?q=' + encodeURIComponent(query), '_blank');
 // });
-
+/**
+ * 챔피언 및 뉴스 검색 필터링 스크립트
+ */
 // ── 챔피언 데이터 ──────────────────────────────────────────────
 const CHAMPIONS = [
     { name: '아트록스', engName: 'Aatrox', role: '전사', lane: '탑', img: 'image/a1.jpeg', difficulty: '상', modalId: 'modalAatrox' },
@@ -18,15 +20,19 @@ const NEWS = [
     { title: '새로운 챔피언 출시', desc: '2026 루나 레벨 이벤트! 신규 챔피언과 함께하는 특별한 시즌.', category: '게임 업데이트' },
     { title: '패치 노트 16.4', desc: '챔피언 밸런스 및 아이템 업데이트 내용을 확인하세요.', category: '패치 노트' },
 ];
+
 // ── 검색 실행 ────────────────────────────────────────────────
 function performSearch(query) {
-    const q = query.trim().toLowerCase(); // 앞 뒤 공백제거, 소문자 변환
+    const q = query.trim().toLowerCase(); 
     if (!q) {
-    showMainScreen();
-    return;
-}
-    document.getElementById('searchKeywordDisplay').textContent = `"${query}"`; // 검색어 인식
-// 챔피온 데이터에서 이름, 영문명, 역할군, 라인 중 하나라도 검색어에 포함되면
+        showMainScreen();
+        return;
+    }
+    
+    // 검색어 헤더 업데이트
+    document.getElementById('searchKeywordDisplay').textContent = `"${query}"`;
+
+    // 챔피언 필터링
     const champResults = CHAMPIONS.filter(c =>
         c.name.includes(q) || c.engName.toLowerCase().includes(q) ||
         c.role.includes(q) || c.lane.includes(q)
@@ -36,9 +42,11 @@ function performSearch(query) {
         n.title.toLowerCase().includes(q) || n.desc.toLowerCase().includes(q) || n.category.toLowerCase().includes(q)
 );
 
+    // 결과 개수 표시
     document.getElementById('champCount').textContent = `(${champResults.length})`; // 검색 결과 개수를 카운트 영역에 표시
     document.getElementById('newsCount').textContent = `(${newsResults.length})`;
-        const champList = document.getElementById('championResultList'); // 검색 결과 없는 경우, 있으면 카드형태 출력
+    
+    const champList = document.getElementById('championResultList');
     if (champResults.length === 0) {
         champList.innerHTML = `<div class="no-result"><h4>검색 결과 없음</h4><p>"${query}"에 해당하는 챔피언이 없습니다.</p></div>`;
     } else {
@@ -55,9 +63,9 @@ function performSearch(query) {
     `).join('');
     }
 
-    const newsList = document.getElementById('newsResultList'); // 검색 결과 없는 경우, 있으면 카드형태 출력
+    const newsList = document.getElementById('newsResultList');
     if (newsResults.length === 0) {
-newsList.innerHTML = `<div class="no-result"><h4>검색 결과 없음</h4><p>"${query}"에 해당하는 뉴스가 없습니다.</p></div>`;
+        newsList.innerHTML = `<div class="no-result"><h4>검색 결과 없음</h4><p>"${query}"에 해당하는 뉴스가 없습니다.</p></div>`;
     } else {
         newsList.innerHTML = newsResults.map(n => `
             <div class="search-result-card p-3" onclick="showMainScreen('newsSection')" style="cursor:pointer;">
@@ -74,15 +82,18 @@ newsList.innerHTML = `<div class="no-result"><h4>검색 결과 없음</h4><p>"${
         </div>
     </div>
 `).join('');
-}
-switchCategory('champion', document.querySelector('.search-category-item')); // 챔피온 탭이 먼저 보임
-document.querySelectorAll('section').forEach(s => {
-    if (s.id !== 'searchResults') {
-        s.classList.add('d-none');
     }
-});
-document.getElementById('searchResults').classList.remove('d-none'); // 기타 섹션까지 숨김
-document.getElementById('searchResults').style.display = 'block'; // 결과 섹션만 출력
+    
+    // 챔피언 탭 기본 활성화
+    switchCategory('champion', document.querySelector('.search-category-item'));
+    
+    document.querySelectorAll('section').forEach(s => {
+        if (s.id !== 'searchResults') {
+            s.classList.add('d-none');
+        }
+    });
+    document.getElementById('searchResults').classList.remove('d-none'); 
+    document.getElementById('searchResults').style.display = 'block';
 }
 
 // ── 카테고리 전환 ────────────────────────────────────────────

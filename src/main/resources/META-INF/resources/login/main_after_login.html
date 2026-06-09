@@ -6,48 +6,32 @@
     <title>League of Legends - 메인 페이지</title>
     <!-- Bootstrap 5 CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="../js/bootstrap.bundle.min.js"></script>
-    <script src="../js/test.js"></script>
-    <script src="../js/test2.js"></script>
+    <!-- 일관성을 위해 외부 CSS 사용 -->
+    <link rel="stylesheet" href="../css/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../js/toggle.js"></script>
-
-
-    <!-- 커스텀 스타일 (LOL 테마 + 챔피언 호버 효과) -->
-    <style>
-        body { background-color: #0a0e17; color: #fff; font-family: 'Arial', sans-serif; }
-        .navbar { background-color: #000; }
-        .hero { background: linear-gradient(to bottom, #1e1e1e, #0a0e17); min-height: 60vh; }
-        .accent-purple { color: #a020f0; }
-        .accent-red { color: #ff0000; }
-        .card { background-color: #1e1e1e; border: none; transition: transform 0.3s, box-shadow 0.3s; }
-        .card:hover { transform: scale(1.05); box-shadow: 0 10px 20px rgba(160, 32, 240, 0.5); }
-        .card-img-top { height: 200px; object-fit: cover; border-radius: 10px 10px 0 0; }
-        .btn-primary { background-color: #a020f0; border: none; }
-        .btn-primary:hover { background-color: #800080; }
-    </style>
+    <script src="../js/test.js"></script>
 </head>
 <body>
 
     <!-- 헤더 (Navbar) -->
-<nav class="navbar navbar-expand-lg bg-dark navbar-dark"
-     data-bs-theme="dark">
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark border-bottom border-secondary"
+        data-bs-theme="dark">
 
-  <div class="container-fluid">
+    <div class="container-fluid">
 
     <!-- 로고 -->
-    <a class="navbar-brand d-flex align-items-center" href="#">
-      <img src="../image/a2.jpeg"
-           alt="LOL 로고"
-           width="40"
-           height="40"
-           class="d-inline-block align-text-top me-2">
+    <div class="d-flex align-items-center">
+        <a class="navbar-brand me-2" href="/">
+            <img src="../image/a2.jpeg"
+            alt="LOL 로고"
+            width="40"
+            height="40"
+                class="d-inline-block align-text-top">
     </a>
-      <button class="btn border-0 text-white"
-              id="themeToggleBtn"
-              onclick="toggleTheme()">
-        🌙DARK
-      </button>
-  
+        <button class="btn border-0 text-white" id="themeToggleBtn" type="button">🌙 DARK</button>
+    </div>
+
 
     <!-- 모바일 토글 버튼 -->
     <button class="navbar-toggler"
@@ -58,34 +42,23 @@
             aria-expanded="false"
             aria-label="Toggle navigation">
 
-      <span class="navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon"></span>
     </button>
 
     <!-- 메뉴 -->
     <div class="collapse navbar-collapse"
-         id="navbarSupportedContent">
+            id="navbarSupportedContent">
 
-      <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
 
-        <li class="nav-item">
-          <a class="nav-link active"
-             aria-current="page"
-             href="#">
-            뉴스
-          </a>
-        </li>
+        <li class="nav-item"><a class="nav-link" href="/#newsSection">뉴스</a></li>
+        <li class="nav-item"><a class="nav-link" href="/#championSection">챔피언</a></li>
 
         <li class="nav-item">
-          <a class="nav-link" href="#">
-            챔피온
-          </a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link"
-             href="main_page_sub/download.html">
+            <a class="nav-link"
+                href="/main_page_sub/download.html">
             다운로드
-          </a>
+            </a>
         </li>
 
         <!-- 프로필 -->
@@ -101,91 +74,65 @@
 
         <!-- 로그아웃 -->
         <li class="nav-item">
-          <a class="nav-link btn btn-outline-danger btn-sm px-3"
-             href="/logout">
+            <a class="nav-link btn btn-outline-danger btn-sm px-3 text-white"
+                href="/logout">
             로그아웃
-          </a>
+            </a>
         </li>
 
         <!-- 외부 사이트 -->
         <li class="nav-item dropdown">
 
-          <a class="nav-link dropdown-toggle"
-             href="#"
-             id="navbarDropdown"
-             role="button"
-             data-bs-toggle="dropdown"
-             aria-expanded="false">
+            <a class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false">
 
             외부웹사이트
-          </a>
+            </a>
 
-          <ul class="dropdown-menu"
-              aria-labelledby="navbarDropdown">
+            <ul class="dropdown-menu"
+                aria-labelledby="navbarDropdown">
 
             <li>
-              <a class="dropdown-item"
-                 href="https://lol.ps/"
-                 target="_blank">
+                <a class="dropdown-item"
+                    href="https://lol.ps/"
+                    target="_blank">
                 롤 전적 사이트
-              </a>
+                </a>
             </li>
-
-            <li>
-              <a class="dropdown-item" href="#">
-                Another action
-              </a>
-            </li>
-
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li>
-              <a class="dropdown-item" href="#">
-                Something else here
-              </a>
-            </li>
-
-          </ul>
+            <li><a class="dropdown-item" href="https://www.op.gg/" target="_blank">OP.GG</a></li>
+            </ul>
         </li>
+        </ul>
 
-        <li class="nav-item">
-          <a class="nav-link disabled"
-             href="#"
-             tabindex="-1"
-             aria-disabled="true">
-            Disabled
-          </a>
-        </li>
-
-      </ul>
-
-      <!-- 검색 -->
-      <form class="d-flex" id="searchForm">
+        <!-- 검색 -->
+        <form class="d-flex" id="searchForm">
 
         <input class="form-control me-2"
-               type="search"
-               placeholder="챔피언, 뉴스 검색..."
-               aria-label="Search"
-               id="searchInput">
+                type="search"
+                placeholder="챔피언, 뉴스 검색..."
+                aria-label="Search"
+                id="searchInput">
 
         <button class="btn btn-outline-success"
                 type="submit">
-          검색하기
+            검색하기
         </button>
 
-      </form>
+        </form>
 
     </div>
-  </div>
+    </div>
 </nav>
         <!-- 히어로 배너 (Hero Banner) -->
         <section class="hero d-flex align-items-center justify-content-center text-center py-5">
             <div class="container">
                 <h1 class="display-3 fw-bold">League of Legends</h1>
                 <p class="lead">적의 넥서스를 파괴하세요! 5v5 MOBA 전투에서 팀과 함께 승리하세요.</p>
-                <a href="#" class="btn btn-primary btn-lg" onclick="alert('즐거운 플레이 되세요')">무료 플레이</a>
+                <a href="#" class="btn btn-primary btn-lg" onclick="showToast('소환사님, 전장으로 떠날 준비가 되셨나요?', 'primary')">무료 플레이</a>
             </div>
         </section>
 
@@ -289,24 +236,24 @@
 
 <!-- ===== 검색 결과 섹션 (기본 숨김) ===== -->
 <section id="searchResults">
-      <!-- 키워드 헤더 -->
-      <div class="search-keyword-header">
+        <!-- 키워드 헤더 -->
+        <div class="search-keyword-header">
         <h1 id="searchKeywordDisplay"></h1>
-      </div>
-      <!-- 본문: 사이드바 + 콘텐츠 -->
-      <div class="search-body">
+        </div>
+        <!-- 본문: 사이드바 + 콘텐츠 -->
+        <div class="search-body">
         <div class="container-fluid px-0">
         <div class="row g-0">
-          <!-- 왼쪽 카테고리 사이드바 -->
-          <div class="col-md-3 col-lg-2 search-sidebar py-4">
+            <!-- 왼쪽 카테고리 사이드바 -->
+            <div class="col-md-3 col-lg-2 search-sidebar py-4">
             <div class="px-3 mb-3" style="font-size:0.8rem; color:#999; text-transform:uppercase; letter-spacing:0.1em;">카테고리</div>
-              <div class="search-category-item active" onclick="switchCategory('champion', this)">
+                <div class="search-category-item active" onclick="switchCategory('champion', this)">
                 챔피언 <span class="count" id="champCount">(0)</span>
-              </div>
+                </div>
 
-              <div class="search-category-item" onclick="switchCategory('news', this)">
+                <div class="search-category-item" onclick="switchCategory('news', this)">
                 뉴스 <span class="count" id="newsCount">(0)</span>
-              </div>
+                </div>
             </div>
             <!-- 오른쪽 콘텐츠 -->
             <div class="col-md-9 col-lg-10 search-content-area">
@@ -396,8 +343,17 @@
 </div>
 
 <script src="../js/search.js"></script>
-<script src="../js/toggle.js"></script>
 <script src="../js/profile.js"></script>
+
+<!-- Toast 알림 컨테이너 (이 부분이 있어야 메시지가 보입니다) -->
+<div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index:9999">
+    <div id="liveToast" class="toast align-items-center text-white bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+            <div class="toast-body" id="toastBody">메시지</div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>

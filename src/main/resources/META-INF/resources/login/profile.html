@@ -5,31 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>League of Legends - 내 프로필</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="../js/bootstrap.bundle.min.js"></script>
-    <script src="../js/test.js"></script>
-    <script src="../js/test2.js"></script>
-    <script src="../js/toggle.js"></script>
-
-    <style>
-        body { background-color: #0a0e17; color: #fff; font-family: 'Arial', sans-serif; }
-        .navbar { background-color: #000; }
-        .hero { background: linear-gradient(to bottom, #1e1e1e, #0a0e17); min-height: 60vh; }
-        .card { background-color: #1e1e1e; border: none; transition: transform 0.3s, box-shadow 0.3s; }
-        .card:hover { transform: scale(1.05); box-shadow: 0 10px 20px rgba(160, 32, 240, 0.5); }
-        .btn-primary { background-color: #a020f0; border: none; }
-        .btn-primary:hover { background-color: #800080; }
-    </style>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/toggle.js"></script>
+    <script src="js/test.js"></script>
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg bg-dark navbar-dark" data-bs-theme="dark">
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark border-bottom border-secondary" data-bs-theme="dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/">
-                <img src="../image/a2.jpeg" alt="LOL 로고" width="40" height="40" class="d-inline-block align-text-top">
-                <button class="btn border-0 text-white" id="themeToggleBtn" type="button">
-                    🌙DARK
-                </button>
-            </a>
+            <div class="d-flex align-items-center">
+                <a class="navbar-brand me-2" href="/">
+                    <img src="../image/a2.jpeg" alt="LOL 로고" width="40" height="40" class="d-inline-block align-text-top">
+                </a>
+                <button class="btn border-0 text-white" id="themeToggleBtn" type="button">🌙DARK</button>
+            </div>
             
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -52,9 +42,7 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="https://lol.ps/" target="_blank">롤 전적 사이트</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            <li><a class="dropdown-item" href="https://www.op.gg/" target="_blank">OP.GG</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -71,7 +59,7 @@
             <h2 class="fw-bold mb-4"> 👤 내 프로필</h2>
             
             <div class="mb-4">
-                <img id="profileImg" src="../image/profileimage.jpeg" class="rounded-circle" width="120" height="120" style="object-fit:cover; border:3px solid #fff;" alt="프로필 사진">
+                <img id="profileImg" src="image/profileimage.jpeg" class="rounded-circle" width="120" height="120" style="object-fit:cover; border:3px solid #fff;" alt="프로필 사진">
             </div>
             
             <div class="card bg-dark text-white border-secondary mb-4">
@@ -93,7 +81,7 @@
                 </div>
             </div>
             
-            <form id="uploadForm" method="POST" action="/profile/upload" enctype="multipart/form-data">
+            <form id="uploadForm" method="POST" action="../profile/upload" enctype="multipart/form-data">
                 <div class="mb-3">
                     <label class="form-label">프로필 사진 변경</label>
                     <input type="file" class="form-control" id="profileFile" name="profileImage" accept="image/jpeg,image/png,image/gif,image/webp">
@@ -107,7 +95,6 @@
     </section>
 
     <script src="../js/search.js"></script>
-    <script src="../js/toggle.js"></script>
     <script src="../js/profile.js"></script>
 </body>
 </html>

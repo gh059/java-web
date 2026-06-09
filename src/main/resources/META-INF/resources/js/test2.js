@@ -12,7 +12,7 @@ for (let i = 0; i < iteration; i++) {
 // ── 1. 탐색(Search) 성능 테스트 ────────────────────
 console.log("\n--- 탐색 성능 테스트 (마지막 요소 찾기) ---");
 
-// 일반 배열 탐색
+// 일반 배열 탐색 (원시값 배열)
 console.time("Simple Array Search");
 const result1 = simpleArray.indexOf("Item_999999");
 console.timeEnd("Simple Array Search");
@@ -22,13 +22,16 @@ console.time("Object Array Search");
 const result2 = objectArray.find(item => item.title === "Item_999999");
 console.timeEnd("Object Array Search");
 
+
 // ── 2. 가공(Map) 성능 테스트 ────────────────────
 console.log("\n--- 데이터 가공 성능 테스트 (전체 순회) ---");
 
+// 일반 배열 Map
 console.time("Simple Array Map");
-simpleArray.map(item => item + "_Updated");
+const updatedSimple = simpleArray.map(item => item + "_Updated");
 console.timeEnd("Simple Array Map");
 
+// 객체 배열 Map (스프레드 연산자 적용)
 console.time("Object Array Map");
-objectArray.map(item => ({ ...item, updated: true }));
+const updatedObject = objectArray.map(item => ({ ...item, updated: true }));
 console.timeEnd("Object Array Map");
